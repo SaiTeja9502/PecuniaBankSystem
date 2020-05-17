@@ -90,7 +90,7 @@
             <th class="text-white"><h5>House No</h5></th>
             <td>
                 <div class="form-group">
-                    <input type=text required #hno="ngModel" [class.is-invalid]="hno.touched && hno.invalid " name="hno" class="form-control" [(ngModel)]="loanRequest.customer.address.hNo">
+                    <input type=text required #hno="ngModel" [class.is-invalid]="hno.touched && hno.invalid " name="hno" class="form-control" [(ngModel)]="loanRequest.customer.address.hno">
                     <div *ngIf="hno.errors && hno.touched">
                         <small class="text-danger"    *ngIf="hno.errors.required">HNo is required</small>
                     </div>
@@ -219,7 +219,7 @@
         <tr>
             <td>
                  <div class="form-group">
-                     <input type=submit value="InsertLoanRequest" [disabled]="create.invalid" class="btn btn-primary text-white" (click)="insertLoanRequest()">
+                     <input type=submit value="InsertLoanRequest" [disabled]="custId.invalid && loanId.invalid && income.invalid && status.invalid" class="btn btn-primary text-white" (click)="insertLoanRequest()">
                  </div>
             </td>
             <td>

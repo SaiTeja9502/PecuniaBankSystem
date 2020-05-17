@@ -19,13 +19,13 @@ export class LoanRepaymentComponent implements OnInit
    public deleteLoanRePayment() : void
    {
       this.loanRepaymentService.deleteLoanRePayment(this.loanRepayment.loanPayId).subscribe(data => this.viewService.sendMessage(data));
-      this.router.navigate(['loanmessage']);
+      this.router.navigate(['/home/loans/loanmessage']);
    }
 
    public insertLoanRePayment():void
    {
        this.loanRepaymentService.insertLoanRePayment(this.loanRepayment).subscribe(data => this.viewService.sendMessage(data));
-       this.router.navigate(['loanmessage']);
+       this.router.navigate(['/home/loans/loanmessage']);
    }
    ngOnInit(): void 
    {

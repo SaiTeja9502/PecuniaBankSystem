@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Dto/account';
 import { AccountService } from "../Services/account-service";
-import { Customer } from '../Dto/customer';
-import { Address } from '../Dto/address';
 import { MessageService } from '../Services/message-service';
 import { Router } from '@angular/router';
 @Component({

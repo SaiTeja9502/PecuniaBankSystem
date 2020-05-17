@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login/login.service';
+import { UserDetails } from '../login/user.details';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userDetails:UserDetails,private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    if(this.userDetails.userDetails.userId == 0)
+        this.router.navigate(['login']);
   }
 
 }

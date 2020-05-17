@@ -1,0 +1,52 @@
+<div class="container Absolute-Center is-Responsive">
+    <form #log="ngForm">
+      <div class="box">
+        <h4 class="text-white" align=center>LOGIN</h4>
+      <table align=center>
+        <tr>
+          <th class="text-white">User ID</th>
+          <td>
+            <div class="form-group">
+              <input type="tel"   #id="ngModel" pattern="[0-9]{8}" name="username" class="form-control" required  [class.is-invalid]="id.touched && id.invalid" [(ngModel)]="user.userId">
+                <div *ngIf="id.errors && id.touched">
+                  <small class="text-danger"    *ngIf="id.errors.required">LOGIN ID is required</small>
+                  <small class="text-danger" *ngIf="id.errors.pattern">Login Id should be 8 digits</small>
+                </div>
+            </div>
+          </td>
+          </tr>
+          <tr>
+            <th class="text-white">Password</th>
+              <td>
+                <div class="form-group">         
+                  <input type="password" #pass="ngModel" name="password" class="form-control" required [class.is-invalid]="pass.touched && pass.invalid " [(ngModel)]="user.password">
+                  <div *ngIf="pass.errors && pass.touched">
+                    <small class="text-danger"    *ngIf="pass.errors.required">Password is required</small>
+                  </div>
+                </div>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="checkbox">
+                <label class="text-white"><input type="checkbox" name="remember">Rememberme</label>
+              </div>
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+            <input type="button" value="Login" [disabled]="log.invalid" class="btn btn-primary text-white" (click)="checkUser()">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type=reset value="Cancel" class="btn btn-warning text-white">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </form>
+  </div>  
+

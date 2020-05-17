@@ -3,6 +3,7 @@ import { LoanService } from '../../Services/loan.service';
 import { Loans } from '../../Dto/loan';
 import { ViewService } from '../../Services/view.service';
 import { Router } from '@angular/router';
+import { UserDetails } from 'src/app/login/user.details';
 
 @Component({
   selector: 'app-showloan',
@@ -11,9 +12,15 @@ import { Router } from '@angular/router';
 })
 export class ShowloanComponent implements OnInit {
   loan:Loans = new Loans();
-  constructor(private loanService:LoanService,private viewService:ViewService,private router:Router) { }
+  renderer:boolean = false;
+  constructor(private loanService:LoanService,private viewService:ViewService,private router:Router,private userDetails:UserDetails) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    if(this.userDetails.userDetails.designation=='Manager')
+    {
+      this.renderer = true;
+    }
   }
   public getLoans():void
    {
@@ -22,12 +29,12 @@ export class ShowloanComponent implements OnInit {
    public deleteLoans() : void
    {
       this.loanService.deleteLoans(this.loan.loanId).subscribe(data => this.viewService.sendMessage(data));
-      this.router.navigate(['loanmessage']);
+      this.router.navigate(['/home/loans/loanmessage']);
    }
 
    public insertLoans():void
    {
        this.loanService.insertLoans(this.loan).subscribe(data => this.viewService.sendMessage(data));
-       this.router.navigate(['loanmessage']);
+       this.router.navigate(['/home/loans/loanmessage']);
    }
 }

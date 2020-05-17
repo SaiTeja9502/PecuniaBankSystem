@@ -21,6 +21,6 @@ export class AddfixeddepositComponent implements OnInit {
   addFixedDeposit() : void
   {
      this.fixedDepositService.addFixedDeposit(this.custId,this.amount,this.duration,this.rate).subscribe(data => this.depositerService.sendMessage(data));
-     this.router.navigate(['message']); 
+     this.router.navigate(['/home/fixeddeposits/message']); 
     }
 }

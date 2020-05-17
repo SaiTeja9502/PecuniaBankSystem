@@ -1,7 +1,7 @@
 export class Address
 {
     addressId:number;
-    hNo:String;
+    hno:String;
     street:number;
     city:String;
     state:String;

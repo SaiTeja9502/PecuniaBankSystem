@@ -8,13 +8,14 @@ import { PassService } from './Services/pass.service';
 import { PassbookService } from './Services/passbook.service';
 import {FormsModule} from '@angular/forms';
 import { PassbookRoutingModule } from './passbook-routing.module';
+import { MessageServiceComponent } from './view/message-service';
 
 @NgModule({
   declarations: [
     PassbookComponent,
     UpdateComponent,
     SummaryComponent,
-    ViewComponent,
+    ViewComponent,MessageServiceComponent
   ],
   providers:[PassService,PassbookService],
   imports: [

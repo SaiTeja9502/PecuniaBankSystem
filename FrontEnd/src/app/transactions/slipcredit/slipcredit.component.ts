@@ -19,6 +19,6 @@ export class SlipcreditComponent implements OnInit {
   creditUsingSlip():void
   {
     this.transactionService.creditUsingSlip(this.accId,this.amount,this.slipno).subscribe(msg => this.transService.sendTransactions(msg),error => {this.transService.sendTransactions(error.error)});
-    this.route.navigate(['transview']);
+    this.route.navigate(['/home/transactions/transview']);
   }
 }

@@ -20,12 +20,11 @@ export class SummaryComponent implements OnInit {
   }
   public getAccountSummary():void
   {
-    console.log(this.startDate);
-    console.log(this.endDate);
+    
     this.passbookService.getAccountSummary(this.accId,this.startDate,this.endDate).subscribe(data => {
-								console.log(data);
-								this.passService.sendTransactions(data.transactions);
-			});
-  this.router.navigate(['view']);
-  }  
+                this.passService.sendTransactions(data.transactions);
+    },
+    error => {this.passService.sendMessages(error.error);});
+    this.router.navigate(['/home/passbook/view']);
+}
 }

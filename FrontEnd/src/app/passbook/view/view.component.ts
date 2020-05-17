@@ -11,15 +11,24 @@ import {PassService} from '../Services/pass.service';
 export class ViewComponent implements OnInit 
 {
   trans:Transaction[]= [];
+  message:String;
+  renderer:boolean = true;
   constructor(private passService:PassService) { }
   ngOnInit(): void 
   {
   	this.passService.transaction$.subscribe(data => {
 							for(var t of data)
 							{
-							  console.log(t);
 							  this.trans.push(t);
 							}
-							});
+              });
+    this.passService.message$.subscribe(data=>{this.message = data;this.renderers();});
+  }
+  renderers():void
+  {
+    if(this.trans.length==0)
+    {
+         this.renderer =false;
+    }
   }
 }

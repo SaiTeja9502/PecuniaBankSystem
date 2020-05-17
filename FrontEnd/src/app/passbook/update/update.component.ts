@@ -14,7 +14,6 @@ export class UpdateComponent implements OnInit
 {
   accId:number;
   transId:number;
-  bool:boolean = false;
   constructor(private passbookService:PassbookService,private router:Router,private passService:PassService) { }
 
   ngOnInit(): void {
@@ -22,8 +21,9 @@ export class UpdateComponent implements OnInit
   public getPassbookUpdates():void
   {
      this.passbookService.getPassbookUpdates(this.accId,this.transId).subscribe( data => {
-								this.passService.sendTransactions(data.transactions);console.log(data)
-			});
-     this.router.navigate(['view']);
+								this.passService.sendTransactions(data.transactions);
+    },error => {this.passService.sendMessages(error.error);}
+    );
+    this.router.navigate(['/home/passbook/view']);
   }
 }

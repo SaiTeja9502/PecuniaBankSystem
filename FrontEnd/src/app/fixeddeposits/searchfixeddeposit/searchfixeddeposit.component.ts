@@ -17,6 +17,6 @@ export class SearchfixeddepositComponent implements OnInit {
   getFixedDepositDetails() : void
   {
     this.fixedDepositService.getFixedDepositDetails(this.depositHolderId).subscribe(data => this.depositerService.sendTransactions(data));
-    this.router.navigate(['holders']);
+    this.router.navigate(['/home/fixeddeposits/holders']);
   }
 }

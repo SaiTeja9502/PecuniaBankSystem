@@ -10,8 +10,11 @@ import { ShowsanctionedComponent } from './sanctioned-loans/showsanctioned/shows
 import { GetallsanctionedComponent } from './sanctioned-loans/getallsanctioned/getallsanctioned.component';
 import { MessageComponent } from './message/message.component';
 import { ShowallrequestsComponent } from './loan-request/showallrequests/showallrequests.component';
+import { LoansComponent } from './loans.component';
 
-const routes: Routes = [ {path:'loan',component:LoanComponent} ,
+const routes: Routes = [
+    {path:'',component:LoansComponent,children:[
+    {path:'loan',component:LoanComponent} ,
     {path:'request',component:LoanRequestComponent},
     {path:'sanctioned',component:SanctionedLoansComponent},
     {path:'repayment',component:LoanRepaymentComponent},
@@ -20,11 +23,11 @@ const routes: Routes = [ {path:'loan',component:LoanComponent} ,
     {path:'showsanctioned',component:ShowsanctionedComponent},
     {path:'allsanctionedloans',component:GetallsanctionedComponent},
     {path:'loanmessage',component:MessageComponent},
-    {path:'showallrequests',component:ShowallrequestsComponent}
+    {path:'showallrequests',component:ShowallrequestsComponent}]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class LoansRoutingModule { }

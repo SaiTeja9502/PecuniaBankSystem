@@ -20,6 +20,6 @@ export class ChequecreditComponent implements OnInit {
   creditUsingCheque():void
   {
     this.transactionService.creditUsingCheque(this.accId,this.cheque).subscribe(msg => this.transService.sendTransactions(msg),error => {this.transService.sendTransactions(error.error)});
-    this.route.navigate(['transview']);
+    this.route.navigate(['/home/transactions/transview']);
   }
 }

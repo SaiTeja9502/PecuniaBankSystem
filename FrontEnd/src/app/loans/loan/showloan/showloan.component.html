@@ -43,26 +43,26 @@
             </tr>
             <tr>
                 <td>
-                     <div class="form-group">
-                         <input type=submit value="AddLoan" [disabled]="create.invalid" class="btn btn-primary text-white" (click)="insertLoans()">
-                     </div>
+                    <div class="form-group">
+                        <input type=submit value="GetLoans" [disabled]="loanId.invalid" class="btn btn-primary text-white" (click)="getLoans()">
+                    </div>
                 </td>
                 <td>
                      <div class="form-group">
-                         <input type=submit value="GetLoans" [disabled]="loanId.invalid" class="btn btn-primary text-white" (click)="getLoans()">
-                     </div>
+                        <input type=reset value="Cancel" class="btn btn-warning text-white">
+                   </div>
                 </td> 
             </tr>        
             <tr>
                 <td>
-                     <div class="form-group">
-                         <input type=submit value="DeleteLoans"  [disabled]="loanId.invalid" class="btn btn-primary text-white" (click)="deleteLoans()">
-                     </div>
+                    <div class="form-group" *ngIf="renderer">
+                        <input type=submit value="AddLoan" [disabled]="loanType.invalid && roi.invalid " class="btn btn-primary text-white" (click)="insertLoans()">
+                    </div>
                 </td>
                 <td>
-                     <div class="form-group">
-                          <input type=reset value="Cancel" class="btn btn-warning text-white">
-                     </div>
+                    <div class="form-group" *ngIf="renderer">
+                        <input type=submit value="DeleteLoans"  [disabled]="loanId.invalid" class="btn btn-primary text-white" (click)="deleteLoans()">
+                    </div>
                 </td>
             </tr>
          </table>

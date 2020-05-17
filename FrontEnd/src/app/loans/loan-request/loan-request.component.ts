@@ -19,18 +19,18 @@ export class LoanRequestComponent implements OnInit
    }
    public deleteLoanRequest() : void
    {
-      this.loanRequestService.deleteLoanRequest(this.loanRequest.requestId).subscribe(data => this.viewService.sendMessage(data));
-      this.router.navigate(['loanmessage']);
+      this.loanRequestService.deleteLoanRequest(this.loanRequest.requestId).subscribe(data => this.viewService.sendMessage(data),error => this.viewService.sendMessage(error.error));
+      this.router.navigate(['/home/loans/loanmessage']);
    }
 
    public insertLoanRequest():void
    {
-       this.loanRequestService.insertLoanRequest(this.loanRequest).subscribe(data => this.viewService.sendMessage(data));
-       this.router.navigate(['loanmessage']);
+       this.loanRequestService.insertLoanRequest(this.loanRequest).subscribe(data => this.viewService.sendMessage(data),error => this.viewService.sendMessage(error.error));
+       this.router.navigate(['/home/loans/loanmessage']);
    }
    public showAllRequests():void
    {
-     this.router.navigate(['showallrequests']);
+     this.router.navigate(['/home/loans/showallrequests']);
    }
    ngOnInit(): void {
   }

@@ -1,3 +1,4 @@
+<div *ngIf="renderer">
 <table align=center class="table table-striped text-white table-bordered">
 	<tr>
 		<th>Transaction ID</th>
@@ -19,3 +20,9 @@
 		<td>{{t.chequeDetails.chequeId}}</td>
 	</tr> 
 </table>
+</div>
+<div *ngIf="!renderer">
+	<div class="contanier">
+		<h2 class="text-white" align=center>{{message}}</h2>
+	</div>
+</div>
